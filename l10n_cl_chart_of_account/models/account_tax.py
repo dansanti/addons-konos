@@ -26,12 +26,12 @@ class AccountTaxTemplate(models.Model):
             string="Activo Fijo",
             default=False,
         )
-    
-    def _get_tax_vals(self, company, tax_template_to_tax):
+
+    def _get_tax_vals(self, company):
         """ This method generates a dictionnary of all the values for the tax that will be created.
         """
         self.ensure_one()
-        val = super(AccountTaxTemplate, self)._get_tax_vals(company, tax_template_to_tax)
+        val = super(AccountTaxTemplate, self)._get_tax_vals(company)
         val.update({
             'sii_code': self.sii_code,
             'sii_type': self.sii_type,
